@@ -1,0 +1,53 @@
+﻿<Window x:Class="VoIPCall.CallingNotification"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VoIPCall"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        Title="Login" Height="500" Width="350" WindowStyle="None"
+        Name="CallingWindows">
+
+    <Grid>
+        <Grid>
+            <Rectangle Height="280" VerticalAlignment="Top" IsHitTestVisible="False">
+                <Rectangle.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF0BB1FF"/>
+                        <GradientStop Color="#FF1B43F3" Offset="1"/>
+                        <GradientStop Color="#FF0080FF" Offset="0.5"/>
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+
+            <Rectangle Width="280" Height="240" VerticalAlignment="Bottom" Margin="0,80" RadiusY="10" RadiusX="10" Fill="White">
+                <Rectangle.Effect>
+                    <DropShadowEffect BlurRadius="15" Direction="0" RenderingBias="Quality" ShadowDepth="1" Color="#FFBBBBBB"/>
+                </Rectangle.Effect>
+            </Rectangle>
+            <Grid VerticalAlignment="Bottom" Margin="35,80" Height="240">
+                <Label Content="Calling..." HorizontalAlignment="Center" VerticalAlignment="Top" Margin="5" Foreground="Black" FontSize="23" FontFamily="Lucida Calligraphy"/>
+                <StackPanel VerticalAlignment="Center" Margin="15">
+                    <TextBlock Text="User" FontSize="18" Foreground="Red" FontFamily="Lucida Calligraphy"/>
+                    <TextBlock x:Name="txbUserIncome" Margin="0,10" FontFamily="Lucida Calligraphy" FontSize="18" />
+                    <TextBlock Text="IP Address" FontSize="18" Foreground="Red" FontFamily="Lucida Calligraphy"/>
+                    <TextBlock x:Name="txbIPAddress" Margin="0,10" FontFamily="Lucida Calligraphy" FontSize="18"/>
+                </StackPanel>
+            </Grid>
+            <Button x:Name="btnAccept" Background="#FF14DE82" Width="110" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="50 0 0 65" Content="ACCEPT" Foreground="#DDFFFFFF" BorderBrush="#FFFEFBFF"/>
+            <Button x:Name="btnReject" Background="#FFF72C22" Width="110" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 0 50 65" Content="REJECT" Foreground="#DDFFFFFF" BorderBrush="#FF030004"/>
+            <Image Source="Assets/calling.png" Width="100" Height="100" VerticalAlignment="Top" Margin="45"/>
+        </Grid>
+
+        <Grid Height="25" Width="40" VerticalAlignment="Top" HorizontalAlignment="Right" x:Name="GridBarraTitulo" Grid.ColumnSpan="2">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="10,0">
+                <Button x:Name="btnExit" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Click="BtnExit_Click">
+                    <materialDesign:PackIcon Kind="Power"/>
+                </Button>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

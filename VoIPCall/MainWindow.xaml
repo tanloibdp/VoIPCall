@@ -1,0 +1,163 @@
+﻿<Window x:Class="VoIPCall.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VoIPCall"
+        mc:Ignorable="d"
+        Loaded="Window_Loaded"
+        xmlns:dragablz="clr-namespace:Dragablz;assembly=Dragablz"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Height="600" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
+    <Grid>
+        <Grid>
+            <dragablz:TabablzControl BorderBrush="#FF0A99EC">
+                <dragablz:TabablzControl.InterTabController>
+                    <dragablz:InterTabController/>
+                </dragablz:TabablzControl.InterTabController>
+                <TabItem x:Name="tabCalling" Header="Calling" FontFamily="Times New Roman" FontSize="18">
+                    <StackPanel>
+                        <TabControl>
+                            <TabItem Background="#FF2196F3" Header="Server" FontFamily="Times New Roman" FontSize="18" Height="30" Width="100" Foreground="Black">
+                                <StackPanel>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="10 20" Grid.ColumnSpan="2" Height="32">
+                                            <TextBlock VerticalAlignment="Center" FontSize="18" Width="auto" Margin="20 0 0 0" FontFamily="Times New Roman">IP Address:</TextBlock>
+                                            <TextBox  VerticalAlignment="Center" FontSize="18" Width="150" Margin="20 0 0 0" FontFamily="Times New Roman"></TextBox>
+                                            <TextBlock VerticalAlignment="Center" FontSize="18" Width="auto" Margin="20 0 0 0" FontFamily="Times New Roman">Port:</TextBlock>
+                                            <TextBox VerticalAlignment="Center" FontSize="18" Width="70" Margin="20 0 0 0" FontFamily="Times New Roman"></TextBox>
+                                            <Button VerticalAlignment="Center" FontSize="18" Width="150" Height="40" Margin="20 0 0 0" FontFamily="Times New Roman" Background="#FF2196F3" BorderBrush="White">_START</Button>
+                                            <Button VerticalAlignment="Center" FontSize="18" Width="150" Height="40" Margin="20 0 0 0" FontFamily="Times New Roman" Background="#FF2196F3" BorderBrush="White">S_TOP</Button>
+                                        </StackPanel>
+                                    </Grid>
+                                    <TextBlock Background="#FFB5BFC7" Margin="20 20 20 20" Height="80"></TextBlock>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="10 10" Grid.ColumnSpan="2" Height="32">
+                                            <TextBlock VerticalAlignment="Center" FontSize="18" Width="70" Margin="20 0 0 0" FontFamily="Times New Roman">Micro</TextBlock>
+                                            <materialDesign:PackIcon Width="30" Height="30" Kind="Microphone" />
+                                            <ComboBox Width="300" Margin="20 0 0 0">
+                                                
+                                            </ComboBox>
+                                        </StackPanel>
+                                    </Grid>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="10 " Grid.ColumnSpan="2" Height="32">
+                                            <TextBlock VerticalAlignment="Center" FontSize="18" Width="70" Margin="20 0 0 0" FontFamily="Times New Roman">Speaker</TextBlock>
+                                            <materialDesign:PackIcon Kind="Speaker" Width="30" Height="30"/>
+                                            <ComboBox Width="300" Margin="20 0 0 0">
+                                            </ComboBox>
+                                        </StackPanel>
+                                    </Grid>
+                                    <Grid Height="210" Background="#FFB5BFC7" Margin="20 0 20 20">
+                                        <ScrollViewer HorizontalScrollBarVisibility="auto" VerticalScrollBarVisibility="auto">
+                                            <ListView FontSize="18" Foreground="Black">
+                                            <ListView.View>
+                                                <GridView>
+                                                    <GridViewColumn Header="PC's Name" Width="150"/>
+                                                    <GridViewColumn Header="IP Address" Width="200"/>
+                                                    <GridViewColumn Header="Status" Width="100"/>
+                                                </GridView>
+                                            </ListView.View>
+                                        </ListView>
+                                        </ScrollViewer>
+                                        
+                                    </Grid>
+                                </StackPanel>
+                            </TabItem>
+                            <TabItem Background="#FF2196F3" Header="Client" FontFamily="Times New Roman" FontSize="18" Height="30" Width="100" Foreground="Black">
+                                <StackPanel>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="10 20" Grid.ColumnSpan="2" Height="32">
+                                            <!--<TextBox  Width="150" Height="40" Margin="20 0 0 0" materialDesign:HintAssist.Hint="IP Address" FontFamily="Times New Roman" FontSize="18" Style="{StaticResource MaterialDesignFloatingHintTextBox}" BorderBrush="Black" Foreground="Black"/>
+                                            <TextBox  Width="150" Height="40" Margin="20 0 0 0" materialDesign:HintAssist.Hint="Port" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontFamily="Times New Roman" FontSize="18" BorderBrush="Black" Foreground="Black"/>-->
+                                            <TextBlock VerticalAlignment="Center" FontSize="18" Width="auto" Margin="20 0 0 0" FontFamily="Times New Roman">IP Address:</TextBlock>
+                                            <TextBox VerticalAlignment="Center" FontSize="18" Width="150" Margin="20 0 0 0" FontFamily="Times New Roman"></TextBox>
+                                            <TextBlock VerticalAlignment="Center" FontSize="18" Width="auto" Margin="20 0 0 0" FontFamily="Times New Roman">Port:</TextBlock>
+                                            <TextBox VerticalAlignment="Center" FontSize="18" Width="70" Margin="20 0 0 0" FontFamily="Times New Roman"></TextBox>
+                                            <Button VerticalAlignment="Center" FontSize="18" Width="150" Height="40" Margin="20 0 0 0" FontFamily="Times New Roman" Background="#FF2196F3" BorderBrush="White">_CONNECT</Button>
+                                            <Button VerticalAlignment="Center" FontSize="18" Width="150" Height="40" Margin="20 0 0 0" FontFamily="Times New Roman" Background="#FF2196F3" BorderBrush="White">_DISCONNECT</Button>
+                                        </StackPanel>
+                                    </Grid>
+                                    <TextBlock Background="#FFB5BFC7" Margin="20 20 20 20" Height="80"></TextBlock>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="10 10" Grid.ColumnSpan="2" Height="32">
+                                            <TextBlock VerticalAlignment="Center" FontSize="18" Width="70" Margin="20 0 0 0" FontFamily="Times New Roman">Micro</TextBlock>
+                                            <materialDesign:PackIcon Width="30" Height="30" Kind="Microphone" />
+                                            <ComboBox Width="300" Margin="20 0 0 0">
+                                                
+                                            </ComboBox>
+                                        </StackPanel>
+                                    </Grid>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="10 " Grid.ColumnSpan="2" Height="32">
+                                            <TextBlock VerticalAlignment="Center" FontSize="18" Width="70" Margin="20 0 0 0" FontFamily="Times New Roman">Speaker</TextBlock>
+                                            <materialDesign:PackIcon Kind="Speaker" Width="30" Height="30"/>
+                                            <ComboBox Width="300" Margin="20 0 0 0">
+                                            </ComboBox>
+                                        </StackPanel>
+                                    </Grid>
+                                    <Grid Height="210" Background="#FFB5BFC7" Margin="20 0 20 20">
+                                        <ScrollViewer HorizontalScrollBarVisibility="auto" VerticalScrollBarVisibility="auto">
+                                            <ListView FontSize="18" Foreground="Black">
+                                                <ListView.View>
+                                                    <GridView>
+                                                        <GridViewColumn Header="PC's Name" Width="150"/>
+                                                        <GridViewColumn Header="IP Address" Width="200"/>
+                                                        <GridViewColumn Header="Status" Width="100"/>
+                                                    </GridView>
+                                                </ListView.View>
+                                            </ListView>
+                                        </ScrollViewer>
+                                    </Grid>
+                                </StackPanel>
+                            </TabItem>
+                        </TabControl>
+                    </StackPanel>
+                </TabItem>
+                <TabItem x:Name="tabCaliingHistory" Header="Calling History" FontFamily="Times New Roman" FontSize="18">
+                    <Grid Margin="20 5 20 5">
+                        <ListView ItemsSource="{Binding CallingHistories}" FontFamily="Times New Roman" FontSize="18" Foreground="Black" >
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn
+                                        DisplayMemberBinding="{Binding BeginTime, UpdateSourceTrigger=PropertyChanged}"
+                                        Header="Time" Width="120"/>
+                                    <GridViewColumn
+                                        DisplayMemberBinding="{Binding Name, UpdateSourceTrigger=PropertyChanged}"
+                                        Header="Name" Width="150"/>
+                                    <GridViewColumn
+                                        DisplayMemberBinding="{Binding IPAddress, UpdateSourceTrigger=PropertyChanged}"
+                                        Header="IP Address" Width="150"/>
+                                    <GridViewColumn
+                                        DisplayMemberBinding="{Binding Duration, UpdateSourceTrigger=PropertyChanged}"
+                                        Header="Duration" Width="150"/>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </Grid>
+                </TabItem>
+            </dragablz:TabablzControl>
+            <Button x:Name="btnExit" Width="50" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,10,0" Click="BtnExit_Click">
+                <materialDesign:PackIcon Kind="Power"/>
+            </Button>
+        </Grid>
+    </Grid>
+</Window>
